@@ -36,19 +36,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebs-kU-FAU">
+                                <rect key="frame" x="159" y="756" width="96" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Finish Turn"/>
+                                <connections>
+                                    <action selector="finishTurnButAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kya-X0-FHo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kPx-Ji-KPT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4tJ-XK-y14"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ebs-kU-FAU" secondAttribute="bottom" constant="70" id="88I-8W-e5w"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kPx-Ji-KPT" secondAttribute="trailing" constant="20" id="9xz-aB-3aK"/>
                             <constraint firstItem="E5h-d2-EAK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.23" id="DKD-Md-XIa"/>
                             <constraint firstItem="ok6-6o-SI3" firstAttribute="top" secondItem="Lup-Af-cuO" secondAttribute="bottom" constant="20" id="FO5-gQ-rro"/>
+                            <constraint firstItem="Ebs-kU-FAU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HzM-5q-wJZ"/>
                             <constraint firstItem="E5h-d2-EAK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KbR-xP-b6V"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E5h-d2-EAK" secondAttribute="trailing" id="bI6-YM-Wrh"/>
                             <constraint firstItem="ok6-6o-SI3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bak-up-E5G"/>
                             <constraint firstItem="kPx-Ji-KPT" firstAttribute="top" secondItem="ok6-6o-SI3" secondAttribute="bottom" constant="50" id="brd-Qx-ZVW"/>
                             <constraint firstItem="Lup-Af-cuO" firstAttribute="top" secondItem="E5h-d2-EAK" secondAttribute="bottom" constant="20" id="dhu-LJ-6lJ"/>
+                            <constraint firstItem="Ebs-kU-FAU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kPx-Ji-KPT" secondAttribute="bottom" constant="20" id="f4g-df-xu9"/>
                             <constraint firstItem="E5h-d2-EAK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mfn-dg-mcc"/>
                             <constraint firstItem="Lup-Af-cuO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rFi-LQ-4U5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lup-Af-cuO" secondAttribute="trailing" id="rhh-An-qqU"/>
@@ -58,6 +69,7 @@
                     <navigationItem key="navigationItem" id="TP7-Ze-MTt"/>
                     <connections>
                         <outlet property="correctWordLabel" destination="Lup-Af-cuO" id="Csc-nY-I2c"/>
+                        <outlet property="finishMoveButton" destination="Ebs-kU-FAU" id="vwV-zd-6Gw"/>
                         <outlet property="imageView" destination="E5h-d2-EAK" id="KMD-4V-H4b"/>
                         <outlet property="inputLetterTextField" destination="ok6-6o-SI3" id="5y7-o7-8SZ"/>
                         <outlet property="usedLettersLabel" destination="kPx-Ji-KPT" id="j6h-TV-MAC"/>

@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var correctWordLabel: UILabel!
     @IBOutlet weak var inputLetterTextField: UITextField!
     @IBOutlet weak var usedLettersLabel: UILabel!
+    @IBOutlet weak var finishMoveButton: UIButton!
+    
     
     var scoreLabel: UILabel!
     
@@ -26,7 +28,9 @@ class ViewController: UIViewController {
                 if onePlayer {
                     gameLost()
                 } else {
-                    nextPlayer()
+                    correctWordLabel.text = correctWord
+                    correctWordLabel.textColor = .red
+                    finishMoveButton.isHidden = false
                 }
                 
             }
@@ -52,6 +56,7 @@ class ViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(goHome))
         
+        finishMoveButton.isHidden = true
         if onePlayer {
             initGame()
         }
@@ -141,6 +146,11 @@ class ViewController: UIViewController {
         guard let vc = storyboard?.instantiateViewController(identifier: "MenuViewController") as? MenuViewController else { return }
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func finishTurnButAction(_ sender: Any) {
+        nextPlayer()
+    }
+    
 }
 
 extension ViewController: UITextFieldDelegate {
@@ -183,7 +193,8 @@ extension ViewController: UITextFieldDelegate {
                 if onePlayer {
                     gameWon()
                 } else {
-                    nextPlayer()
+                    correctWordLabel.textColor = .green
+                    finishMoveButton.isHidden = false
                     if playerNumb == 1 {
                         dataTwoPlayers?.player1Point += 1
                     } else {
@@ -243,6 +254,7 @@ extension ViewController: UITextFieldDelegate {
     
     func nextPlayer() {
         navigationItem.hidesBackButton = false
+        
         if playerNumb == 1 {
             guard let vc  = storyboard?.instantiateViewController(identifier: "OnePlayer") as? ViewController else { return }
             vc.onePlayer = false
@@ -258,6 +270,8 @@ extension ViewController: UITextFieldDelegate {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    
     
 }
 
